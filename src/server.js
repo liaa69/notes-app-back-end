@@ -4,8 +4,8 @@ const routes = require('./routes')
 
 const init = async () => {
   const server = Hapi.server({
-    port: 8000,
-    host: 'localhost',
+    port: 5000,
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     // Cross-origin resource sharing (CORS) dapat ditetapkan pada spesifik route dengan menambahkan properti options.cors di konfigurasi route
     routes: {
       cors: {
